@@ -10,13 +10,18 @@ import { ProductService } from '../services/product.service';
 export class TableComponent implements OnInit {
 
   cartdata: any;
+  number:any;
   constructor(private route: ActivatedRoute,private db:ProductService) { }
 
   ngOnInit(): void {
     this.cartproduct();
+   this.number=this.cartdata.length
+   console.log(this.number)
   }
 
-  
+  Removecart(data:any){
+    this.db.removeItem(data)
+  }
 
   cartproduct() {
     this.cartdata = this.db.getallCart()

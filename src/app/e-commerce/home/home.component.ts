@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Data } from './data';
 import { Router } from '@angular/router';
 import { ProductService } from 'src/app/services/product.service';
-
+import * as AOS from 'aos';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -15,6 +15,7 @@ export class HomeComponent implements OnInit {
   constructor(private router:Router,private db:ProductService) { }
 
   ngOnInit(): void {
+    AOS.init();
     this.data = Data
   }
 

@@ -31,8 +31,7 @@ export class AppComponent {
 
 // })
 
-  ngOnInit(): void{
-    
+  ngOnInit(){
   }
 //   submit(data:any) {
 //   // this.router.navigateByUrl('table')
