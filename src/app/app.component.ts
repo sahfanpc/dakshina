@@ -9,6 +9,15 @@ import { Router } from '@angular/router';
 })
 export class AppComponent {
   title = 'task';
+  // options: Array<any> = ['Angular', 'React', 'vue'];
+  // objectOptions = [
+  //   { name: 'angular' }, { name: 'angular js' }, { name: 'vue' }, { name: 'react' }
+  // ];
+
+  
+  // displayFn(subject:any) {
+  //   return subject ? subject.name : undefined;
+  // }
 // items:Array<any>=[]
 //   textbutton: boolean = false;
   constructor(private fb:FormBuilder,private router:Router) { }

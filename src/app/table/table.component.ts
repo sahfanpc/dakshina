@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
 import { ProductService } from '../services/product.service';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-table',
@@ -11,16 +12,19 @@ export class TableComponent implements OnInit {
 
   cartdata: any;
   number:any;
-  constructor(private route: ActivatedRoute,private db:ProductService) { }
+  constructor(private route: ActivatedRoute,private db:ProductService,private snakBar:MatSnackBar) { }
 
   ngOnInit(): void {
     this.cartproduct();
-   this.number=this.cartdata.length
-   console.log(this.number)
+   this.number=this.db.cart
+  //  console.log(this.number)
   }
 
-  Removecart(data:any){
-    this.db.removeItem(data)
+  Removecart(index:number){
+    this.db.removeItem(index)
+    this.snakBar.open("removed", '', {
+      duration: 3000
+    })
   }
 
   cartproduct() {

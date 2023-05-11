@@ -28,11 +28,8 @@ export class ProductService {
     return this.isprod;
       
 }
-removeItem(data:any):void{
- const check= this.cart.filter((cartproduct:any)=> cartproduct.id ==data.id)
-  if(check.length != 0){
-    this.cart.splice(data,1)
-  }
+removeItem(index:any):void{
+    this.cart.splice(index,1)
 }
   getallCart() {
   return this.cart

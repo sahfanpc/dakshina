@@ -28,6 +28,8 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { RouterLink } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
 import { ProdectdetailComponent } from './prodectdetail/prodectdetail.component';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+import {MatAutocompleteModule} from '@angular/material/autocomplete';
 
 
 @NgModule({
@@ -56,7 +58,9 @@ import { ProdectdetailComponent } from './prodectdetail/prodectdetail.component'
   MatGridListModule,
   MatSlideToggleModule,
   RouterLink,
-  HttpClientModule,
+    HttpClientModule, 
+    MatSnackBarModule,
+  MatAutocompleteModule
   ],
   providers: [],
   bootstrap: [AppComponent]

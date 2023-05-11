@@ -3,6 +3,7 @@ import { Data } from './data';
 import { Router } from '@angular/router';
 import { ProductService } from 'src/app/services/product.service';
 import * as AOS from 'aos';
+import { MatSnackBar } from '@angular/material/snack-bar';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -12,7 +13,7 @@ export class HomeComponent implements OnInit {
 
   addcart: any;
   data: any;
-  constructor(private router:Router,private db:ProductService) { }
+  constructor(private router:Router,private db:ProductService,private snackBat:MatSnackBar) { }
 
   ngOnInit(): void {
     AOS.init();
@@ -27,9 +28,17 @@ export class HomeComponent implements OnInit {
   add(product:any) {
     this.addcart = this.db.addtocart(product)
     if (this.addcart) {
-      alert("Product Added")
+      this.snackBat.open('product added','Undo' ,{
+        duration: 3000
+        // verticalPosition:'top'
+      })
+      // alert("Product Added")
     } else {
-      alert("Already exist")
+      // alert("Already exist")
+       this.snackBat.open('Already exist','Undo' ,{
+        duration: 3000
+        // verticalPosition:'top'
+      })
     }
 // this.router.navigateByUrl('table')
   }
