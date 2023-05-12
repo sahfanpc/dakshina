@@ -14,8 +14,10 @@
                 </aside>
             </aside>
             <aside class="nav-right">
-                <aside class="header-sec">Products {{number.length}}</aside>
-                <button mat-raised-button [routerLink]="['']" color="warn">Home</button>
+                <button mat-raised-button matBadge="{{cartdata.length}}">
+                    Products
+                </button>
+                <button mat-raised-button (click)="home()" color="warn">Home</button>
             </aside>
         </nav>
     </aside>
@@ -67,7 +69,14 @@
                     <button class="mat-raised-button">PLACE ORDER</button>
                 </footer>
             </aside>
-            <aside class="short-list"></aside>
+            <aside class="short-list">
+                <aside>
+                    <h1>{{cartprice}}</h1>
+                    <p></p>
+
+                </aside>
+            </aside>
+
         </section>
     </section>
 

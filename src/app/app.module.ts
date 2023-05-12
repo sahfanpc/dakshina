@@ -25,11 +25,17 @@ import {MatSelectModule} from '@angular/material/select';
 import { from } from 'rxjs';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatPaginatorModule } from '@angular/material/paginator';
-import { RouterLink } from '@angular/router';
+import { RouterLink, RouterModule } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
 import { ProdectdetailComponent } from './prodectdetail/prodectdetail.component';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import {MatAutocompleteModule} from '@angular/material/autocomplete';
+import { LoginComponent } from './login/login.component';
+import { MatBadgeModule } from '@angular/material/badge';
+import { MatBottomSheetModule } from '@angular/material/bottom-sheet';
+import { MatListModule } from '@angular/material/list';
+
+
 
 
 @NgModule({
@@ -37,7 +43,9 @@ import {MatAutocompleteModule} from '@angular/material/autocomplete';
     AppComponent,
     TableComponent,
     HomeComponent,
-    ProdectdetailComponent
+    ProdectdetailComponent,
+    LoginComponent,
+    TableComponent,
   ],
   imports: [
     BrowserModule,
@@ -60,7 +68,11 @@ import {MatAutocompleteModule} from '@angular/material/autocomplete';
   RouterLink,
     HttpClientModule, 
     MatSnackBarModule,
-  MatAutocompleteModule
+    MatAutocompleteModule,
+    MatBadgeModule,
+    MatBottomSheetModule,
+    MatListModule,
+    MatIconModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

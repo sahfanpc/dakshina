@@ -28,14 +28,14 @@ export class HomeComponent implements OnInit {
   add(product:any) {
     this.addcart = this.db.addtocart(product)
     if (this.addcart) {
-      this.snackBat.open('product added','Undo' ,{
+      this.snackBat.open('product added','close' ,{
         duration: 3000
         // verticalPosition:'top'
       })
       // alert("Product Added")
     } else {
       // alert("Already exist")
-       this.snackBat.open('Already exist','Undo' ,{
+       this.snackBat.open('Already exist','close' ,{
         duration: 3000
         // verticalPosition:'top'
       })

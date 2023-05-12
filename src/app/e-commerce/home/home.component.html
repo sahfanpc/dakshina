@@ -15,7 +15,7 @@
             </aside>
             <aside class="nav-right">
                 <button mat-stroked-button color="warn">profile</button>
-                <button mat-raised-button color="primary">Login</button>
+                <button mat-raised-button color="primary" [routerLink]="['/login']">Login</button>
             </aside>
         </nav>
     </aside>
@@ -27,7 +27,7 @@
             <aside class="nav-down-condent">
                 <aside class="head-text">Prodect Lists</aside>
                 <button mat-stroked-button color="warn" (click)="cart()"><span class="material-icons-round">
-                    shopping_cart
+                        shopping_cart
                     </span>Cart</button>
             </aside>
 
@@ -52,17 +52,18 @@
                 </video>
                 <p class="vedio-text">selection</p>
             </aside>
-            <aside class="offer-card" data-aos="zoom-in">   <video autoplay loop muted plays-inline class="back-vedio" width="200" height="300">
-                <source src="../../../assets/vedio4.mp4" type="video/mp4">
-            </video>
-            <p class="vedio-text">shopping</p>
+            <aside class="offer-card" data-aos="zoom-in"> <video autoplay loop muted plays-inline class="back-vedio"
+                    width="200" height="300">
+                    <source src="../../../assets/vedio4.mp4" type="video/mp4">
+                </video>
+                <p class="vedio-text">shopping</p>
+            </aside>
+
         </aside>
-            
-        </aside>
-        
+
         <section class="cards">
             <aside class="card" *ngFor="let item of data; let i=index" [title]="item.title" data-aos="fade-up"
-            data-aos-anchor-placement="bottom-bottom">
+                data-aos-anchor-placement="bottom-bottom">
                 <img src="{{item.image}}" alt="" (click)="viewProdect(i)">
                 <aside class="prodect-des">{{item.base}}</aside>
                 <aside class="prodect-prize">${{item.price}}</aside>
