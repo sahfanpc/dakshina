@@ -32,9 +32,6 @@ export class TableComponent implements OnInit {
       for (let i = 0; i < this.cartdata.length;i++) {
         this.cartprice += this.cartdata[i].price;         
     }
-    for (let i = this.cartdata.length; i > 0;i--) {
-        this.removedprice -= this.removedprice[i].price;         
-      }
     
   }
 

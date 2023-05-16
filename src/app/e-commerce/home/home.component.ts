@@ -7,43 +7,48 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
-  styleUrls: ['./home.component.scss']
+  styleUrls: ['./home.component.scss'],
 })
 export class HomeComponent implements OnInit {
-
+  showFiller = false;
   addcart: any;
   data: any;
-  constructor(private router:Router,private db:ProductService,private snackBat:MatSnackBar) { }
+  constructor(
+    private router: Router,
+    private db: ProductService,
+    private snackBat: MatSnackBar
+  ) {}
 
   ngOnInit(): void {
     AOS.init();
-    this.data = Data
+    this.data = Data;
   }
 
-  viewProdect(index:any) {
+  viewProdect(index: any) {
     // console.log("index",index)
-    this.router.navigate(['prodectdetail'],{queryParams : {product:index}})
-
+    this.router.navigate(['prodectdetail'], {
+      queryParams: { product: index },
+    });
   }
-  add(product:any) {
-    this.addcart = this.db.addtocart(product)
+  add(product: any) {
+    this.addcart = this.db.addtocart(product);
     if (this.addcart) {
-      this.snackBat.open('product added','close' ,{
-        duration: 3000
+      this.snackBat.open('product added', 'close', {
+        duration: 3000,
         // verticalPosition:'top'
-      })
+      });
       // alert("Product Added")
     } else {
       // alert("Already exist")
-       this.snackBat.open('Already exist','close' ,{
-        duration: 3000
+      this.snackBat.open('Already exist', 'close', {
+        duration: 3000,
         // verticalPosition:'top'
-      })
+      });
     }
-// this.router.navigateByUrl('table')
+    // this.router.navigateByUrl('table')
   }
 
   cart() {
-    this.router.navigateByUrl('table')
+    this.router.navigateByUrl('table');
   }
 }

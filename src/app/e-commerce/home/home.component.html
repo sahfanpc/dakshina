@@ -14,25 +14,56 @@
                 </aside>
             </aside>
             <aside class="nav-right">
-                <button mat-stroked-button color="warn">profile</button>
-                <button mat-raised-button color="primary" [routerLink]="['/login']">Login</button>
+                <button mat-stroked-button color="warn" [routerLink]="['/profile']" class="nav-button">profile</button>
+                <button mat-raised-button color="primary" [routerLink]="['/login']" class="nav-button">Login</button>
+
+
+                <div class="example-sidenav-content">
+                    <button mat-button type="button" color="primary" class="toggle-button"
+                        (click)="drawer.toggle()">Toggle<mat-icon>menu</mat-icon></button>
+
+                </div>
+
+
             </aside>
         </nav>
     </aside>
     <section class="container">
-        <aside class="navbar-down">
-            <video autoplay loop muted plays-inline class="back-vedio">
-                <source src="../../../assets/istockphoto-1298550149-640_adpp_is.mp4" type="video/mp4">
-            </video>
-            <aside class="nav-down-condent">
-                <aside class="head-text">Prodect Lists</aside>
-                <button mat-stroked-button color="warn" (click)="cart()"><span class="material-icons-round">
-                        shopping_cart
-                    </span>Cart</button>
+        <mat-drawer-container class="example-container" autosize hasBackdrop="true">
+            <aside class="navbar-down">
+                <video autoplay loop muted plays-inline class="back-vedio">
+                    <source src="../../../assets/istockphoto-1298550149-640_adpp_is.mp4" type="video/mp4">
+                </video>
+                <aside class="nav-down-condent">
+                    <aside class="head-text">Prodect Lists</aside>
+                    <button mat-stroked-button color="warn" (click)="cart()"><span class="material-icons-round">
+                            shopping_cart
+                        </span>Cart</button>
+                </aside>
+
+                <!-- -->
             </aside>
 
-            <!-- -->
-        </aside>
+            <mat-drawer #drawer class="example-sidenav" mode="over">
+                <!-- search-bar -->
+                <aside class="search-bar">
+                    <aside class="search">
+                        <div class="input-container">
+                            <span class="material-icons-outlined icon">search</span>
+                            <input class="input-field" type="text" placeholder="Search" name="usrnm">
+                        </div>
+                    </aside>
+                </aside>
+                <!-- button-profile-login -->
+                <aside class="btn-grp">
+                    <button mat-stroked-button color="warn" [routerLink]="['/profile']"
+                        class="nav-button">profile</button>
+                    <button mat-raised-button color="primary" [routerLink]="['/login']"
+                        class="nav-button">Login</button>
+                </aside>
+            </mat-drawer>
+        </mat-drawer-container>
+
         <aside class="offer-cards">
             <aside class="offer-card" data-aos="zoom-in">
                 <video autoplay loop muted plays-inline class="back-vedio" width="200" height="300">
