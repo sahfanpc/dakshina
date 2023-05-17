@@ -276,6 +276,14 @@
         top: -12rem;
         gap: 3rem;
       }
+      @media only #{$desktop-max-lg-680} {
+        top: -15rem;
+        gap: 3rem;
+      }
+      @media only #{$desktop-max-mob} {
+        top: -20rem;
+        gap: 3rem;
+      }
 
       padding: 2rem;
       display: flex;
@@ -326,6 +334,15 @@
       gap: 0.5rem;
       justify-content: center;
       padding: 1rem;
+      @media only #{$tab-max} {
+        position: relative;
+        top: -10rem;
+      }
+      @media only #{$desktop-max-mob} {
+        position: relative;
+        top: -20rem;
+        // gap: 3rem;
+      }
       .card {
         position: relative;
         background-color: white;

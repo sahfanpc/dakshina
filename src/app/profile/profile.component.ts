@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { COMMA, ENTER } from '@angular/cdk/keycodes';
 import { ElementRef, ViewChild } from '@angular/core';
 import { FormControl, FormGroup, FormBuilder } from '@angular/forms';
@@ -8,7 +8,12 @@ import { Observable } from 'rxjs';
 import { map, startWith } from 'rxjs/operators';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
-// export interface PeriodicElement {
+import {
+  MatBottomSheet,
+  MatBottomSheetRef,
+} from '@angular/material/bottom-sheet'; // export interface PeriodicElement {
+import { Router } from '@angular/router';
+import { ProductService } from '../services/product.service';
 //   name: string;
 //   position: number;
 //   weight: number;
@@ -36,6 +41,9 @@ import { MatTableDataSource } from '@angular/material/table';
   styleUrls: ['./profile.component.scss'],
 })
 export class ProfileComponent implements OnInit {
+  image: any;
+  @Input() childData: any;
+
   // displayedColumns: string[] = ['position', 'name', 'weight', 'symbol'];
   // dataSource = new MatTableDataSource<PeriodicElement>(ELEMENT_DATA);
 
@@ -44,7 +52,17 @@ export class ProfileComponent implements OnInit {
   // ngAfterViewInit() {
   //   this.dataSource.paginator = this.paginator;
   // }
-
+  constructor(
+    private _bottomSheetRef: MatBottomSheetRef<ProfileComponent>,
+    private db: ProductService
+  ) {}
+  openLink(event: MouseEvent): void {
+    this._bottomSheetRef.dismiss();
+    event.preventDefault();
+  }
+  // public childData($event: any): void {
+  //   console.log($event);
+  // }
   // // displayedColumns: string[] = ['position', 'name', 'weight', 'symbol'];
   // // dataSource = ELEMENT_DATA;
 
@@ -66,7 +84,14 @@ export class ProfileComponent implements OnInit {
   // }
   // firstFormGroup: FormGroup = this._formBuilder.group({ firstCtrl: [''] });
   // secondFormGroup: FormGroup = this._formBuilder.group({ secondCtrl: [''] });
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    console.log(this.childData);
+    this.getViewimage();
+  }
+  getViewimage() {
+    this.image = this.db.image;
+    // console.log(data);
+  }
   // add(event: MatChipInputEvent): void {
   //   const value = (event.value || '').trim();
 

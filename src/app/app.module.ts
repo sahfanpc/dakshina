@@ -29,7 +29,11 @@ import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatChipsModule } from '@angular/material/chips';
 import { LoginComponent } from './login/login.component';
 import { MatBadgeModule } from '@angular/material/badge';
-import { MatBottomSheetModule } from '@angular/material/bottom-sheet';
+import {
+  MatBottomSheet,
+  MatBottomSheetModule,
+  MatBottomSheetRef,
+} from '@angular/material/bottom-sheet';
 import { MatListModule } from '@angular/material/list';
 import { DownDropPageComponent } from './down-drop-page/down-drop-page.component';
 import { MatCardModule } from '@angular/material/card';
@@ -95,7 +99,7 @@ import { MatTooltipModule } from '@angular/material/tooltip';
     MatTreeModule,
     MatTooltipModule,
   ],
-  providers: [],
+  providers: [{ provide: MatBottomSheet }],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

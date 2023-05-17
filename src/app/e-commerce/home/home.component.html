@@ -20,7 +20,7 @@
 
                 <div class="example-sidenav-content">
                     <button mat-button type="button" color="primary" class="toggle-button"
-                        (click)="drawer.toggle()">Toggle<mat-icon>menu</mat-icon></button>
+                        (click)="drawer.toggle()"><mat-icon>menu</mat-icon></button>
 
                 </div>
 
@@ -95,12 +95,16 @@
         <section class="cards">
             <aside class="card" *ngFor="let item of data; let i=index" [title]="item.title" data-aos="fade-up"
                 data-aos-anchor-placement="bottom-bottom">
-                <img src="{{item.image}}" alt="" (click)="viewProdect(i)">
+                <img src="{{item.image}}" alt="" (click)="openBottomSheet(item.image)">
                 <aside class="prodect-des">{{item.base}}</aside>
                 <aside class="prodect-prize">${{item.price}}</aside>
                 <aside class="button-grp">
                     <button mat-raised-button color="primary" (click)="add(item)" class="button-card">Add to
                         Cart</button>
+                    <button mat-raised-button color="warn" (click)="viewProdect(i)" class="button-card">View
+                        prod</button>
+                    <!-- <button mat-raised-button color="warn" (click)="Product(item)" class="button-card">View
+                        prod</button> -->
                     <!-- <button mat-raised-button color="warn" (click)="viewProdect(i)" class="button-card">view
                         product</button> -->
                 </aside>
@@ -111,3 +115,4 @@
         </section>
     </section>
 </section>
+<!-- <app-profile [childData]="sendData"></app-profile> -->

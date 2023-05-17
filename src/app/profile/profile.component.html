@@ -1,3 +1,30 @@
+<!-- <app-home (myData)="childData($event)"></app-home> -->
+<mat-nav-list>
+
+    <!-- <app-authors (myData)="childData($event)"></app-authors> -->
+    <!-- <app-home (myData)="childData($event)"></app-home> -->
+    <img src="{{image}}" alt="">
+    <a href="https://keep.google.com/" mat-list-item (click)="openLink($event)">
+        <span matListItemTitle>Google Keep</span>
+        <span matLine>Add to a note</span>
+    </a>
+
+    <a href="https://docs.google.com/" mat-list-item (click)="openLink($event)">
+        <span matListItemTitle>Google Docs</span>
+        <span matLine>Embed in a document</span>
+    </a>
+
+    <a href="https://plus.google.com/" mat-list-item (click)="openLink($event)">
+        <span matListItemTitle>Google Plus</span>
+        <span matLine>Share with your friends</span>
+    </a>
+
+    <a href="https://hangouts.google.com/" mat-list-item (click)="openLink($event)">
+        <span matListItemTitle>Google Hangouts</span>
+        <span matLine>Show to your coworkers</span>
+    </a>
+</mat-nav-list>
+
 <!-- <mat-form-field class="example-chip-list" appearance="fill">
     <mat-label>Favorite Fruits</mat-label>
     <mat-chip-list #chipList aria-label="Fruit selection">

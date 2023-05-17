@@ -1,9 +1,14 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { Data } from './data';
 import { Router } from '@angular/router';
 import { ProductService } from 'src/app/services/product.service';
 import * as AOS from 'aos';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { ProfileComponent } from 'src/app/profile/profile.component';
+import {
+  MatBottomSheet,
+  MatBottomSheetRef,
+} from '@angular/material/bottom-sheet';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -13,15 +18,26 @@ export class HomeComponent implements OnInit {
   showFiller = false;
   addcart: any;
   data: any;
+
+  // @Output() public sendData = new EventEmitter<any>();
+
   constructor(
     private router: Router,
     private db: ProductService,
-    private snackBat: MatSnackBar
+    private snackBat: MatSnackBar,
+    private _bottomSheet: MatBottomSheet
   ) {}
 
   ngOnInit(): void {
     AOS.init();
     this.data = Data;
+  }
+
+  openBottomSheet(data: any): void {
+    this.db.veiwImage(data);
+    // console.log(data);
+    // this.sendData.emit('jhgvuyvuyubbhh');
+    this._bottomSheet.open(ProfileComponent);
   }
 
   viewProdect(index: any) {
@@ -51,4 +67,9 @@ export class HomeComponent implements OnInit {
   cart() {
     this.router.navigateByUrl('table');
   }
+
+  // Product(data: any) {
+  //   console.log(data, 'product');
+  //   this.sendData.emit(data);
+  // }
 }
