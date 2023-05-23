@@ -14,6 +14,7 @@ import {
 } from '@angular/material/bottom-sheet'; // export interface PeriodicElement {
 import { Router } from '@angular/router';
 import { ProductService } from '../services/product.service';
+import { LoginComponent } from '../login/login.component';
 //   name: string;
 //   position: number;
 //   weight: number;
@@ -41,8 +42,9 @@ import { ProductService } from '../services/product.service';
   styleUrls: ['./profile.component.scss'],
 })
 export class ProfileComponent implements OnInit {
-  image: any;
-  @Input() childData: any;
+  selectedValue: string = '';
+  // image: any;
+  @Input() data: any;
 
   // displayedColumns: string[] = ['position', 'name', 'weight', 'symbol'];
   // dataSource = new MatTableDataSource<PeriodicElement>(ELEMENT_DATA);
@@ -53,13 +55,10 @@ export class ProfileComponent implements OnInit {
   //   this.dataSource.paginator = this.paginator;
   // }
   constructor(
-    private _bottomSheetRef: MatBottomSheetRef<ProfileComponent>,
-    private db: ProductService
+    private db: ProductService,
+    private _bottomSheet: MatBottomSheet
   ) {}
-  openLink(event: MouseEvent): void {
-    this._bottomSheetRef.dismiss();
-    event.preventDefault();
-  }
+
   // public childData($event: any): void {
   //   console.log($event);
   // }
@@ -84,13 +83,27 @@ export class ProfileComponent implements OnInit {
   // }
   // firstFormGroup: FormGroup = this._formBuilder.group({ firstCtrl: [''] });
   // secondFormGroup: FormGroup = this._formBuilder.group({ secondCtrl: [''] });
+
+  ngOnChanges(): void {
+    console.log(this.data);
+  }
+
   ngOnInit(): void {
-    console.log(this.childData);
     this.getViewimage();
+    // console.log('micdsnics', this.data);
   }
   getViewimage() {
-    this.image = this.db.image;
+    // this.image = this.db.image;
     // console.log(data);
+  }
+  openBottomSheet(details: any): void {
+    const size = this.selectedValue;
+    // console.log('1', size);
+    // const detail = details.push('size:', size);
+    // details.push('size:', size);
+    // console.log('1', details);
+    this.db.Order(details, size);
+    this._bottomSheet.open(LoginComponent);
   }
   // add(event: MatChipInputEvent): void {
   //   const value = (event.value || '').trim();

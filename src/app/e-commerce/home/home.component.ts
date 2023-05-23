@@ -18,6 +18,7 @@ export class HomeComponent implements OnInit {
   showFiller = false;
   addcart: any;
   data: any;
+  itemdata: any;
 
   // @Output() public sendData = new EventEmitter<any>();
 
@@ -34,10 +35,13 @@ export class HomeComponent implements OnInit {
   }
 
   openBottomSheet(data: any): void {
-    this.db.veiwImage(data);
+    // this.db.veiwImage(data);
+    this.itemdata = data;
+
     // console.log(data);
     // this.sendData.emit('jhgvuyvuyubbhh');
-    this._bottomSheet.open(ProfileComponent);
+    // this._bottomSheet.open(ProfileComponent);
+    // console.log(data);
   }
 
   viewProdect(index: any) {

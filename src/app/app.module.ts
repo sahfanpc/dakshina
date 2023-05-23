@@ -49,6 +49,7 @@ import { MatTableModule } from '@angular/material/table';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatTreeModule } from '@angular/material/tree';
 import { MatTooltipModule } from '@angular/material/tooltip';
+import { OrderComponent } from './order/order.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -59,6 +60,7 @@ import { MatTooltipModule } from '@angular/material/tooltip';
     TableComponent,
     DownDropPageComponent,
     ProfileComponent,
+    OrderComponent,
   ],
   imports: [
     BrowserModule,

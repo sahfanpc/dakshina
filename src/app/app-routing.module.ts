@@ -6,6 +6,7 @@ import { ProdectdetailComponent } from './prodectdetail/prodectdetail.component'
 import { LoginComponent } from './login/login.component';
 import { DownDropPageComponent } from './down-drop-page/down-drop-page.component';
 import { ProfileComponent } from './profile/profile.component';
+import { OrderComponent } from './order/order.component';
 
 const routes: Routes = [
   { path: 'table', component: TableComponent },
@@ -13,11 +14,12 @@ const routes: Routes = [
   { path: 'prodectdetail', component: ProdectdetailComponent },
   { path: 'login', component: LoginComponent },
   { path: 'down-drop-page', component: DownDropPageComponent },
-  { path: 'profile', component: ProfileComponent }
+  { path: 'profile', component: ProfileComponent },
+  { path: 'order', component: OrderComponent },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

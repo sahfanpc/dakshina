@@ -1,30 +1,18 @@
-<!-- <app-home (myData)="childData($event)"></app-home> -->
-<mat-nav-list>
-
-    <!-- <app-authors (myData)="childData($event)"></app-authors> -->
-    <!-- <app-home (myData)="childData($event)"></app-home> -->
-    <img src="{{image}}" alt="">
-    <a href="https://keep.google.com/" mat-list-item (click)="openLink($event)">
-        <span matListItemTitle>Google Keep</span>
-        <span matLine>Add to a note</span>
-    </a>
-
-    <a href="https://docs.google.com/" mat-list-item (click)="openLink($event)">
-        <span matListItemTitle>Google Docs</span>
-        <span matLine>Embed in a document</span>
-    </a>
-
-    <a href="https://plus.google.com/" mat-list-item (click)="openLink($event)">
-        <span matListItemTitle>Google Plus</span>
-        <span matLine>Share with your friends</span>
-    </a>
-
-    <a href="https://hangouts.google.com/" mat-list-item (click)="openLink($event)">
-        <span matListItemTitle>Google Hangouts</span>
-        <span matLine>Show to your coworkers</span>
-    </a>
-</mat-nav-list>
-
+<section class="main" *ngIf="data">
+    <img src="{{data.image}}" alt="">
+    <h1>{{data.base}}</h1>
+    <div class="but-grp">
+        <label for="">Size:</label>
+        <mat-button-toggle-group name="fontStyle" aria-label="Font Style" [(ngModel)]="selectedValue">
+            <mat-button-toggle value="small">S</mat-button-toggle>
+            <mat-button-toggle value="large">L</mat-button-toggle>
+            <mat-button-toggle value="Xsmall">XS</mat-button-toggle>
+            <mat-button-toggle value="Xlarge">XL</mat-button-toggle>
+        </mat-button-toggle-group>
+    </div>
+    <button mat-raised-button (click)="openBottomSheet(data)">Open file</button>
+    <!-- <input type="text" value="fncfdkjl" placeholder="ldsivhisol"> -->
+</section>
 <!-- <mat-form-field class="example-chip-list" appearance="fill">
     <mat-label>Favorite Fruits</mat-label>
     <mat-chip-list #chipList aria-label="Fruit selection">

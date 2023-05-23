@@ -8,11 +8,13 @@ export class ProductService {
   datas: any = Data;
   cart: Array<any> = [];
   image: any;
+  orderdetail: any;
+  listorder: any;
   constructor() {}
 
-  veiwImage(data: any) {
-    this.image = data;
-  }
+  // veiwImage(data: any) {
+  //   this.image = data;
+  // }
 
   addtocart(product: any) {
     if (this.cart.length == 0) {
@@ -36,5 +38,12 @@ export class ProductService {
   }
   getallCart() {
     return this.cart;
+  }
+  Order(details: any, size: any) {
+    this.orderdetail = { details, size };
+    // console.log('2', this.orderdetail);
+  }
+  orderlist(data: any, orderdetail: any) {
+    this.listorder = { data, orderdetail };
   }
 }

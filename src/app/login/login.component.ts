@@ -11,6 +11,9 @@ import {
   MatBottomSheet,
   MatBottomSheetRef,
 } from '@angular/material/bottom-sheet';
+import { ProductService } from '../services/product.service';
+import { CurrencyPipe } from '@angular/common';
+import { Router } from '@angular/router';
 // import { DownDropPageComponent } from '../down-drop-page/down-drop-page.component';
 
 @Component({
@@ -19,7 +22,7 @@ import {
   styleUrls: ['./login.component.scss'],
 })
 export class LoginComponent implements OnInit {
-  // name: any;
+  displayorder: any;
   // name1: any;
   // myControl = new FormControl('');
   // options: string[] = ['One', 'Two', 'Three','four'];
@@ -27,48 +30,38 @@ export class LoginComponent implements OnInit {
 
   constructor(
     private _bottomSheet: MatBottomSheet,
-    private formBuilder: FormBuilder
+    private formBuilder: FormBuilder,
+    private _bottomSheetRef: MatBottomSheetRef<LoginComponent>,
+    private db: ProductService,
+    private router: Router,
+    private fb: FormBuilder
   ) {}
   //  checkboxForm = this.formBuilder.group({
   //     termsAccepted: [false, Validators.requiredTrue]
   //   });
-
+  value: any;
+  orderform = this.formBuilder.group({
+    place: ['', Validators.required],
+    address: ['', Validators.required],
+    pin: ['', Validators.required],
+  });
   ngOnInit(): void {
-    // this.filterOptions = this.myControl.valueChanges.pipe(
-    //   startWith(''),
-    //   map(value => this._filter(value || '')),
-    // );
+    this.getorder();
   }
-  //   openBottomSheet(): void {
-  //   this._bottomSheet.open(DownDropPageComponent);
-  // }
 
-  //  private _filter(value: string): string[] {
-  //     const filterValue = value.toLowerCase();
-
-  //     return this.options.filter(option => option.toLowerCase().includes(filterValue));
-  //  }
-
-  // submit(data: any) {
-  //   console.log(data)
-  // }
-  // ////////////////////
-
-  // hidden = false;
-
-  // toggleBadgeVisibility() {
-  //   this.hidden = !this.hidden;
-  // }
-  // button() {
-  //   console.log(this.name)
-  //   console.log(this.name1)
-  // }
-
-  // submitForm() {
-  //     if (this.checkboxForm.valid) {
-  //       console.log('Form submitted successfully');
-  //     } else {
-  //       console.log('Please accept the terms and conditions');
-  //     }
-  //   }
+  openLink(event: MouseEvent): void {
+    this._bottomSheetRef.dismiss();
+    event.preventDefault();
+  }
+  getorder(): void {
+    this.displayorder = this.db.orderdetail;
+    console.log('3', this.displayorder);
+  }
+  order(data: any) {
+    console.log(data);
+    const orderdetail = this.displayorder;
+    this.db.orderlist(data, orderdetail);
+    this.router.navigateByUrl('order');
+    this._bottomSheetRef.dismiss();
+  }
 }

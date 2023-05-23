@@ -95,7 +95,7 @@
         <section class="cards">
             <aside class="card" *ngFor="let item of data; let i=index" [title]="item.title" data-aos="fade-up"
                 data-aos-anchor-placement="bottom-bottom">
-                <img src="{{item.image}}" alt="" (click)="openBottomSheet(item.image)">
+                <img src="{{item.image}}" alt="" (click)="openBottomSheet(item)">
                 <aside class="prodect-des">{{item.base}}</aside>
                 <aside class="prodect-prize">${{item.price}}</aside>
                 <aside class="button-grp">
@@ -115,4 +115,8 @@
         </section>
     </section>
 </section>
+
+<!-- <app-profile *ngIf="data"></app-profile> -->
 <!-- <app-profile [childData]="sendData"></app-profile> -->
+
+<app-profile [data]="itemdata"></app-profile>
