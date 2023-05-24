@@ -70,9 +70,9 @@
                     <button class="mat-raised-button">PLACE ORDER</button>
                 </footer>
             </aside>
-            <aside class="short-list">
+            <aside class="short-list" [ngClass]="cartdata.length==0?'style1':'style2'">
                 <aside>
-                    <h1>{{cartprice}}</h1>
+                    <h1>{{cartprice | currency:'USD':'symbol':'1.2-2'}} </h1>
                     <p></p>
 
                 </aside>
@@ -81,4 +81,10 @@
         </section>
     </section>
 
+    <div [ngSwitch]="cartdata.length">
+        <div *ngSwitchCase="0">no values</div>
+        <div *ngSwitchCase="1">one values</div>
+        <div *ngSwitchCase="2">two values</div>
+        <div *ngSwitchDefault>morethan 2 values</div>
+    </div>
 </section>

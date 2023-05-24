@@ -50,6 +50,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatTreeModule } from '@angular/material/tree';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { OrderComponent } from './order/order.component';
+import { CustomPipe } from './custom.pipe';
 @NgModule({
   declarations: [
     AppComponent,
@@ -61,6 +62,7 @@ import { OrderComponent } from './order/order.component';
     DownDropPageComponent,
     ProfileComponent,
     OrderComponent,
+    CustomPipe,
   ],
   imports: [
     BrowserModule,

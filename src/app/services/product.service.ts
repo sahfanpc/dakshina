@@ -9,7 +9,7 @@ export class ProductService {
   cart: Array<any> = [];
   image: any;
   orderdetail: any;
-  listorder: any;
+  listorder: Array<any> = [];
   constructor() {}
 
   // veiwImage(data: any) {
@@ -40,10 +40,27 @@ export class ProductService {
     return this.cart;
   }
   Order(details: any, size: any) {
-    this.orderdetail = { details, size };
+    this.orderdetail = { details, size: { size } };
     // console.log('2', this.orderdetail);
   }
   orderlist(data: any, orderdetail: any) {
-    this.listorder = { data, orderdetail };
+    this.listorder.push({
+      place: data.place,
+      address: data.address,
+      pin: data.pin,
+      size: orderdetail.size.size,
+      id: orderdetail.details.id,
+      title: orderdetail.details.title,
+      price: orderdetail.details.price,
+      image: orderdetail.details.image,
+    });
+    console.log(this.listorder, 'services');
   }
 }
+//  data.size,
+//    data.details.id,
+//    data.details.title,
+//    data.details.prize,
+//    orderdetail.place,
+//    orderdetail.address,
+//    orderdetail.pin;

@@ -1,4 +1,11 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import {
+  Component,
+  ElementRef,
+  EventEmitter,
+  OnInit,
+  Output,
+  ViewChild,
+} from '@angular/core';
 import { Data } from './data';
 import { Router } from '@angular/router';
 import { ProductService } from 'src/app/services/product.service';
@@ -9,19 +16,21 @@ import {
   MatBottomSheet,
   MatBottomSheetRef,
 } from '@angular/material/bottom-sheet';
+import { AfterViewInit } from '@angular/core';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss'],
 })
-export class HomeComponent implements OnInit {
+export class HomeComponent implements OnInit, AfterViewInit {
   showFiller = false;
   addcart: any;
   data: any;
   itemdata: any;
-
+  value: any;
+  @ViewChild('childView') child!: ProfileComponent;
   // @Output() public sendData = new EventEmitter<any>();
-
+  @ViewChild('test') refbox!: ElementRef;
   constructor(
     private router: Router,
     private db: ProductService,
@@ -34,6 +43,10 @@ export class HomeComponent implements OnInit {
     this.data = Data;
   }
 
+  ngAfterViewInit(): void {
+    console.log(this.refbox);
+    this.refbox.nativeElement.style.color = 'red';
+  }
   openBottomSheet(data: any): void {
     // this.db.veiwImage(data);
     this.itemdata = data;
@@ -71,9 +84,17 @@ export class HomeComponent implements OnInit {
   cart() {
     this.router.navigateByUrl('table');
   }
-
+  testEvent(data: any) {
+    console.log(data, 'parent');
+  }
   // Product(data: any) {
   //   console.log(data, 'product');
   //   this.sendData.emit(data);
   // }
+  inc(): void {
+    this.child.increment();
+  }
+  dec(): void {
+    this.child.decrement();
+  }
 }
