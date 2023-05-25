@@ -21,6 +21,10 @@ import { Router } from '@angular/router';
 import { ProductService } from '../services/product.service';
 import { LoginComponent } from '../login/login.component';
 import { validateHorizontalPosition } from '@angular/cdk/overlay';
+import { isTenAsync } from '../custom-valid';
+import { ErrorStateMatcher } from '@angular/material/core';
+import { NgIf } from '@angular/common';
+// import { customValidator } from '../custom-valid';
 // import { PasswordValidators } from '../custom-valid';
 
 @Component({
@@ -35,7 +39,7 @@ export class ProfileComponent implements OnInit {
   @Input() data: any;
   @Output() Itemevent = new EventEmitter<string>();
   exampleform = this.fb.group({
-    name: ['', Validators.required],
+    name: ['', Validators.required, isTenAsync],
   });
   // displayedColumns: string[] = ['position', 'name', 'weight', 'symbol'];
   // dataSource = new MatTableDataSource<PeriodicElement>(ELEMENT_DATA);
@@ -102,5 +106,10 @@ export class ProfileComponent implements OnInit {
   childparent(data: any) {
     this.Itemevent.emit(data);
     console.log(data);
+    if (this.exampleform.valid) {
+      console.log(data, 'custom validation');
+    } else {
+      console.log('error custom validation');
+    }
   }
 }

@@ -115,12 +115,9 @@
         </section>
     </section>
 </section>
-
 <!-- <app-profile *ngIf="data"></app-profile> -->
 <!-- <app-profile [childData]="sendData"></app-profile> -->
-
 <app-profile [data]="itemdata" (Itemevent)="testEvent($event)" #childView></app-profile>
-
 <h2>Counder:{{child?.counter}}</h2>
 <div>
     <button (click)="inc()">inc</button>

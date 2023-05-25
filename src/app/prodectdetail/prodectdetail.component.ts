@@ -15,7 +15,6 @@ export class ProdectdetailComponent implements OnInit {
   ngOnInit(): void {
     this.checkparams();
   }
-
   checkparams(): void {
     this.route.queryParams.subscribe((res: Params) => {
       const index = parseInt(res['product']);

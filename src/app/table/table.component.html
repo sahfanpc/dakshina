@@ -62,8 +62,6 @@
                             <button class="mat-button" (click)="cart(item)">SAVE FOR LATER</button>
                             <button class="mat-button" (click)="Removecart(i)">REMOVE</button>
                         </aside>
-
-
                     </aside>
                 </aside>
                 <footer class="footer-button">
@@ -74,13 +72,10 @@
                 <aside>
                     <h1>{{cartprice | currency:'USD':'symbol':'1.2-2'}} </h1>
                     <p></p>
-
                 </aside>
             </aside>
-
         </section>
     </section>
-
     <div [ngSwitch]="cartdata.length">
         <div *ngSwitchCase="0">no values</div>
         <div *ngSwitchCase="1">one values</div>
