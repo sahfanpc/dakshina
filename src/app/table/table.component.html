@@ -14,6 +14,17 @@
                 </aside>
             </aside>
             <aside class="nav-right">
+                <!-- <mat-form-field>
+                    <mat-label>Favorite animal</mat-label>
+                    <mat-select [formControl]="animalControl" required>
+                        <mat-option>--</mat-option>
+                        <mat-option *ngFor="let animal of animals" [value]="animal">
+                            {{animal.name}}
+                        </mat-option>
+                    </mat-select>
+                    <mat-error *ngIf="animalControl.hasError('required')">Please choose an animal</mat-error>
+                    <mat-hint>{{animalControl.value?.sound}}</mat-hint>
+                </mat-form-field> -->
                 <button mat-raised-button matBadge="{{cartdata.length}}">
                     Products
                 </button>
@@ -69,9 +80,13 @@
                 </footer>
             </aside>
             <aside class="short-list" [ngClass]="cartdata.length==0?'style1':'style2'">
-                <aside>
-                    <h1>{{cartprice | currency:'USD':'symbol':'1.2-2'}} </h1>
-                    <p></p>
+                <aside class="table-totalprice">
+                    <aside *ngFor="let item of cartdata">
+                        <span class="table-totalprice-condent">{{item.base}}:</span>
+                        <span class="table-totalprice-condent">{{item.price | currency}}</span>
+                    </aside>
+                    <h1 *ngIf="cartdata.length!=0">Total amound:{{cartprice | currency:'USD':'symbol':'1.2-2'}}</h1>
+
                 </aside>
             </aside>
         </section>

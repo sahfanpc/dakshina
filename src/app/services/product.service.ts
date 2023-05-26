@@ -39,8 +39,8 @@ export class ProductService {
   getallCart() {
     return this.cart;
   }
-  Order(details: any, size: any) {
-    this.orderdetail = { details, size: { size } };
+  Order(details: any, size: any, itemnumber: any) {
+    this.orderdetail = { details, size, itemnumber };
     // console.log('2', this.orderdetail);
   }
   orderlist(data: any, orderdetail: any) {
@@ -48,19 +48,13 @@ export class ProductService {
       place: data.place,
       address: data.address,
       pin: data.pin,
-      size: orderdetail.size.size,
+      size: orderdetail.size,
       id: orderdetail.details.id,
       title: orderdetail.details.title,
       price: orderdetail.details.price,
       image: orderdetail.details.image,
+      item: orderdetail.itemnumber,
     });
     console.log(this.listorder, 'services');
   }
 }
-//  data.size,
-//    data.details.id,
-//    data.details.title,
-//    data.details.prize,
-//    orderdetail.place,
-//    orderdetail.address,
-//    orderdetail.pin;

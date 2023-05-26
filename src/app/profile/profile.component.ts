@@ -36,6 +36,7 @@ export class ProfileComponent implements OnInit {
   selectedValue: string = '';
   // image: any;
   counter: number = 0;
+  items: number = 1;
   @Input() data: any;
   @Output() Itemevent = new EventEmitter<string>();
   exampleform = this.fb.group({
@@ -90,6 +91,16 @@ export class ProfileComponent implements OnInit {
   decrement() {
     this.counter--;
   }
+  incrementitem() {
+    this.items++;
+  }
+  decrementitem() {
+    if (this.items > 0) {
+      this.items--;
+    } else {
+      this.items == 0;
+    }
+  }
   ngOnInit(): void {
     this.getViewimage();
     // console.log('micdsnics', this.data);
@@ -100,7 +111,9 @@ export class ProfileComponent implements OnInit {
   }
   openBottomSheet(details: any): void {
     const size = this.selectedValue;
-    this.db.Order(details, size);
+    const itemnumber = this.items;
+
+    this.db.Order(details, size, itemnumber);
     this._bottomSheet.open(LoginComponent);
   }
   childparent(data: any) {
