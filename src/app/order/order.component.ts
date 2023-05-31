@@ -19,4 +19,8 @@ export class OrderComponent implements OnInit {
 
     // console.log(this.data.data, this.data.orderdetail);
   }
+  cancel(index: any) {
+    this.db.removeOrder(index);
+    // console.log(index);
+  }
 }

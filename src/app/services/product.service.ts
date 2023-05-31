@@ -57,4 +57,10 @@ export class ProductService {
     });
     console.log(this.listorder, 'services');
   }
+  removeOrder(index: number) {
+    const newIndex = this.listorder.findIndex((e) => e.id === index);
+    if (newIndex >= 0) {
+      this.listorder.splice(newIndex, 1);
+    }
+  }
 }

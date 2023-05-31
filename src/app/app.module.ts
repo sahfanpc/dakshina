@@ -17,12 +17,11 @@ import { MatInputModule } from '@angular/material/input';
 import { MatIconModule } from '@angular/material/icon';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatFormFieldModule, MatLabel } from '@angular/material/form-field';
-import { MatSelectModule } from '@angular/material/select';
 import { from } from 'rxjs';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { RouterLink, RouterModule } from '@angular/router';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { ProdectdetailComponent } from './prodectdetail/prodectdetail.component';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
@@ -51,6 +50,10 @@ import { MatTreeModule } from '@angular/material/tree';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { OrderComponent } from './order/order.component';
 import { CustomPipe } from './custom.pipe';
+import { MatSelectModule } from '@angular/material/select';
+import { TranslationPipe } from './translation.pipe';
+// import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -63,6 +66,7 @@ import { CustomPipe } from './custom.pipe';
     ProfileComponent,
     OrderComponent,
     CustomPipe,
+    TranslationPipe,
   ],
   imports: [
     BrowserModule,
@@ -107,3 +111,7 @@ import { CustomPipe } from './custom.pipe';
   bootstrap: [AppComponent],
 })
 export class AppModule {}
+
+// export function HttpLoaderFactory(http: HttpClient) {
+//   return new TranslateHttpLoader(http):
+// }
