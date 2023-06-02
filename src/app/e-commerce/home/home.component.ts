@@ -28,6 +28,8 @@ export class HomeComponent implements OnInit, AfterViewInit {
   data: any;
   itemdata: any;
   value: any;
+  searchTerm: any;
+  searchResults: any[];
   @ViewChild('childView') child!: ProfileComponent;
   // @Output() public sendData = new EventEmitter<any>();
   @ViewChild('test') refbox!: ElementRef;
@@ -36,16 +38,30 @@ export class HomeComponent implements OnInit, AfterViewInit {
     private db: ProductService,
     private snackBat: MatSnackBar,
     private _bottomSheet: MatBottomSheet
-  ) {}
+  ) {
+    this.searchResults = this.data;
+  }
 
   ngOnInit(): void {
     AOS.init();
     this.data = Data;
+    this.searchResults = this.data;
+    // this.search();
   }
 
   ngAfterViewInit(): void {
     console.log(this.refbox);
     this.refbox.nativeElement.style.color = 'red';
+  }
+  search() {
+    // this.searchResults = this.data;
+    if (this.searchTerm.trim()) {
+      this.searchResults = this.data.filter((item: any) =>
+        item.base.toLowerCase().includes(this.searchTerm.toLowerCase())
+      );
+    } else {
+      this.searchResults = this.data;
+    }
   }
   openBottomSheet(data: any): void {
     // this.db.veiwImage(data);

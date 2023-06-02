@@ -13,9 +13,6 @@
                     </aside>
                 </aside>
             </aside>
-            <aside class="nav-right">
-                <button mat-raised-button color="warn" [routerLink]="['']">Home</button>
-            </aside>
             <mat-form-field appearance="fill">
                 <mat-label>Language</mat-label>
                 <mat-select [(ngModel)]="selectedOption" (selectionChange)="onOptionSelected($event)"
@@ -24,32 +21,24 @@
                     <mat-option value="spanish">spanish</mat-option>
                 </mat-select>
             </mat-form-field>
+            <aside class="nav-right">
+                <button mat-raised-button color="warn" [routerLink]="['']">Home</button>
+            </aside>
+
 
         </nav>
     </aside>
-
-    <!-- <p>{{selectedOption | translation}}</p> -->
-    <!-- <h1>{{ 'greeting' | translate }}</h1>
-    <p>{{ 'welcome' | translate }}</p> -->
-    <select (change)="changeLanguage($event)">
-        <option value="en">English</option>
-        <option value="fr">French</option>
-    </select>
-    <h1>{{ 'Title' | translation:selectedLanguage }}</h1>
-    <h2>{{'hello' | translation:selectedLanguage}}</h2>
-    <h2>{{ content1 | translation:selectedLanguage}}</h2>
-
-    <p>{{ content | translation:selectedLanguage}}</p>
     <section class="main-sec-product">
         <aside class="section-prodect">
-            <h1 class="prodect-head">PRODUCT DETAILS</h1>
+            <h1 class="prodect-head">{{'product details' | translation:selectedOption | custom}}</h1>
             <img src="{{productdata.image}}" width="200rem" alt="">
             <aside class="text-area">
-                <span class="short-detail">{{productdata.title }}</span>
-                <span class="price">${{productdata.price}}</span>
-                <span class="category">{{productdata.category}}</span>
-                <span class="discription">{{productdata.description}}</span>
-                <span class="rating">{{productdata.rate}}</span>
+                <span class="short-detail">{{'Title' | translation:selectedOption}}:{{productdata.title }}</span>
+                <span class="price">{{'price' | translation:selectedOption}}:{{productdata.price}}</span>
+                <span class="category">{{'category' | translation:selectedOption}}:{{productdata.category}}</span>
+                <span class="discription">{{'Description'
+                    |translation:selectedOption}}:{{productdata.description}}</span>
+                <!-- <span class="rating">{{productdata.rate}}</span> -->
             </aside>
 
         </aside>

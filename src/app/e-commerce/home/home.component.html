@@ -8,9 +8,15 @@
                     <aside class="search">
                         <div class="input-container">
                             <span class="material-icons-outlined icon">search</span>
-                            <input class="input-field" type="text" placeholder="Search" name="usrnm">
+                            <input class="input-field" type="text" [(ngModel)]="searchTerm" (keyup)="search()"
+                                placeholder="Search" name="usrnm">
                         </div>
                     </aside>
+                    <!-- <ul>
+                        <li *ngFor="let result of searchResults">
+                            {{ result.id }} - {{ result.name }}
+                        </li>
+                    </ul> -->
                 </aside>
             </aside>
             <aside class="nav-right">
@@ -93,7 +99,7 @@
         </aside>
 
         <section class="cards">
-            <aside class="card" *ngFor="let item of data; let i=index" [title]="item.title" data-aos="fade-up"
+            <aside class="card" *ngFor="let item of searchResults; let i=index" [title]="item.title" data-aos="fade-up"
                 data-aos-anchor-placement="bottom-bottom">
                 <img src="{{item.image}}" alt="" (click)="openBottomSheet(item)">
                 <aside class="prodect-des">{{item.base}}</aside>

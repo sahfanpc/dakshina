@@ -11,9 +11,6 @@ import { Data } from '../e-commerce/home/data';
 export class ProdectdetailComponent implements OnInit {
   productdata: any;
   selectedOption = 'english';
-  content = 'how are you?';
-  selectedLanguage: string = 'en';
-  content1 = 'hello';
 
   // selectedOption = 'english';
   // childData: any;
@@ -28,11 +25,6 @@ export class ProdectdetailComponent implements OnInit {
 
   ngOnInit(): void {
     this.checkparams();
-  }
-  changeLanguage(event: Event) {
-    const target = event.target as HTMLSelectElement;
-    const language = target.value;
-    this.selectedLanguage = language;
   }
 
   onOptionSelected(event: any): void {
